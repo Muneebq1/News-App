@@ -28,7 +28,8 @@
     border-radius: 20px;
     border-color: rgb(235, 235, 235);
     font-size: medium;
-
+    
+    
 }
 
 .sign-in {
@@ -60,4 +61,23 @@ button {
     border-radius: 100%;
     padding: 5px;
     
+}
+.main{
+    background-image: linear-gradient(176deg,rgba(52,120,188,.2) 0%,rgba(52,120,188,0) 343px); 
+    
+}
+
+.post{
+    margin-left: 20%;
+    text-align: center;
+    width: 1000px; 
+    margin-top: 50px;
+    border-radius: 20px;
+    background-color: white;
+ 
+}
+.post > img{
+    width: 400px;
+    margin-bottom: 10px;
+    position: relative;
 }
