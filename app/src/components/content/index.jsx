@@ -66,52 +66,58 @@ const Content = () => {
     }
     return (
 
-        <div >
+        <div>
+            <div className='nav'>
+                <form onSubmit={getNews} >
+                    <div className='flex'>
+                        <img className='micro' src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png" alt="logo" />
+                        <p className="logo">Microsoft Bing</p>
+                        <input type="text"
+                            className='input' onChange={(e) => {
+                                SetQuerry(e.target.value)
+                            }} />
+                        <button className='sign-in'>Sign in</button>
+                        <p className='reward'>Rewards</p>
+                        <FontAwesomeIcon className='icon , trophy' icon={faTrophy} />
+                        <FontAwesomeIcon className='icon' icon={faBars} />
 
-            <form onSubmit={getNews} >
-                <div className='flex'>
-                    <img className='micro' src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png" alt="logo" />
-                    <p className="logo">Microsoft Bing</p>
-                    <input type="text"
-                        className='input' onChange={(e) => {
-                            SetQuerry(e.target.value)
-                        }} />
-                    <button className='sign-in'>Sign in</button>
-                    <p className='reward'>Rewards</p>
-                    <FontAwesomeIcon className='icon , trophy' icon={faTrophy} />
-                    <FontAwesomeIcon className='icon' icon={faBars} />
 
-
-                </div>
-            </form>
+                    </div>
+                </form>
+            </div>
 
             <div className='main'>
+                <div className='color'></div>
+                <br /><br />
 
                 <h1>Trending News</h1>
 
                 {(isLoading) ? "loading.." : ""}
 
 
-                    {Data.map(eachPost => (
+                {Data.map(eachPost => (
 
-                        <div key={eachPost?.name} className="post">
-                            <a href={eachPost?.url}>{eachPost?.name}</a>
-                            <span>{
-                                moment(eachPost?.datePublished).format('MMMM Do YYYY , h:mm a')
-                            }
-                            </span>
-                            <h3>{eachPost?.description}</h3>
-                            <img src={eachPost?.image?.thumbnail?.contentUrl
-                                .replace("&pid=News", "")
-                                .replace("pid=News&", "")
-                                .replace("pid=News", "")
-                            }
-                                alt="" />
+                    <div key={eachPost?.name} className="post">
+                        <a className='link' href={eachPost?.url}>{eachPost?.name}</a>
+                        <br />
+                        
+                        <span>{
+                            moment(eachPost?.datePublished).format('MMMM Do YYYY , h:mm a')
+                        }
+                        </span>
+                        <br /> <br />
+                        <img src={eachPost?.image?.thumbnail?.contentUrl
+                            .replace("&pid=News", "")
+                            .replace("pid=News&", "")
+                            .replace("pid=News", "")
+                        }
+                            alt="" />
+                        <p>{eachPost?.description}</p>
 
-                        </div>
+                    </div>
 
-                    ))}
-                
+                ))}
+
 
             </div>
         </div>
